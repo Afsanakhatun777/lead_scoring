@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: lead-scoring-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run apps.py --server.port $PORT --server.address 0.0.0.0
+    plan: free
+    envVars:
+      - key: TRANSFORMERS_CACHE
+        value: /opt/render/.cache/huggingface
