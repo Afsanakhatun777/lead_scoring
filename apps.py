@@ -11,8 +11,8 @@ import os
 def load_resources():
     encoder = joblib.load("encoder.pkl")
     model = joblib.load("xgb_model.pkl")
-    tokenizer = BertTokenizer.from_pretrained("bert_tokenizer/")
-    bert_model = BertModel.from_pretrained("bert_model/")
+   tokenizer = BertTokenizer.from_pretrained("distilbert-base-uncased")
+    bert_model = BertModel.from_pretrained("distilbert-base-uncased")
     return encoder, model, tokenizer, bert_model
 
 encoder, model, tokenizer, bert_model = load_resources()
@@ -140,3 +140,4 @@ if uploaded_file is not None:
             file_name="lead_predictions_with_probabilities.csv",
             mime="text/csv"
         )
+
